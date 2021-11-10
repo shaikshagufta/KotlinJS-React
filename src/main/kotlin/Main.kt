@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 import styled.*
 
 fun main() {
-    document.bgColor = "blue"
+    document.bgColor = "red"
 }
