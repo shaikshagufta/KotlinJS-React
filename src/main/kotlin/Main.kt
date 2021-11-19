@@ -5,46 +5,9 @@ import kotlinx.serialization.Serializable
 import styled.*
 
 fun main() {
+    //Let's make our main function render Our user interface which is now packed away in a component!.
     render(document.getElementById("root")) {
-        h1 {
-            +"KotlinConf Explorer"
-        }
-        div {
-            h3 {
-                +"Videos to watch"
-            }
-            //we can now write a Kotlin for-loop to iterate over the collection of unwatched and watched videos.
-            for (video in unwatchedVideos) {
-                p {
-                    +"${video.speaker}: ${video.title}"
-                }
-            }
-
-            h3 {
-                +"Videos watched"
-            }
-            for (video in watchedVideos) {
-                p {
-                    +"${video.speaker}: ${video.title}"
-                }
-            }
-        }
-//Let's use styledDiv to move the video player to the top right corner of the page.
-        styledDiv {
-            css {
-                position = Position.absolute
-                top = 10.px
-                right = 10.px
-            }
-            h3 {
-                +"John Doe: Building and breaking things"
-            }
-            img {
-                attrs {
-                    src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
-                }
-            }
-        }
+        child(app)
     }
 }
 data class Video(
@@ -63,3 +26,4 @@ val unwatchedVideos = listOf(
 val watchedVideos = listOf(
     Video(4, "Mouseless development", "Tom Jerry", "https://youtu.be/PsaFVLr8t4E")
 )
+//we've finished extracting our first component!
