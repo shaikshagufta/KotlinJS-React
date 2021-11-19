@@ -16,6 +16,11 @@ val videoList = fc<VideoListProps> { props ->
             key = video.id.toString()
 //'Key' attribute helps the React renderer figure out what it needs to do when the value of props.videos changes.
 // It uses the key to determine which parts of a list need to refresh, and which ones stay the same.
+            attrs {
+                onClickFunction = {
+                    window.alert("Clicked $video!")
+                }
+            }
             +"${video.speaker}: ${video.title}"
         }
     }
