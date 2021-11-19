@@ -11,6 +11,9 @@ import react.dom.*
 
 //We now adjust the class definition of VideoList to make use of the props, which are passed into the fc block
 val videoList = fc<VideoListProps> { props ->
+    var selectedVideo: Video? by useState(null)
+//val videoList = fc<VideoListProps> { props ->
+    //useState--instruct the framework to keep track of state across multiple invocations of the function.
     for (video in props.videos) {
         p {
             key = video.id.toString()
@@ -18,8 +21,14 @@ val videoList = fc<VideoListProps> { props ->
 // It uses the key to determine which parts of a list need to refresh, and which ones stay the same.
             attrs {
                 onClickFunction = {
-                    window.alert("Clicked $video!")
+                    //to assign its value to the selectedVideo variable when the user clicks a video
+
+                    selectedVideo = video
                 }
+            }
+            //When we render the list entry that is currently selected, we need to prepend the triangle.
+            if (video == selectedVideo) {
+                +"▶ "
             }
             +"${video.speaker}: ${video.title}"
         }
