@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 import styled.*
 
 fun main() {
-    //Let's make our main function render Our user interface which is now packed away in a component!.
     render(document.getElementById("root")) {
         child(app)
     }
@@ -16,7 +15,6 @@ data class Video(
     val speaker: String,
     val videoUrl: String
 )
-//let's fill up the two lists for unwatched videos and watched videos respectively.
 val unwatchedVideos = listOf(
     Video(1, "Building and breaking things", "John Doe", "https://youtu.be/PsaFVLr8t4E"),
     Video(2, "The development process", "Jane Smith", "https://youtu.be/PsaFVLr8t4E"),
@@ -26,4 +24,3 @@ val unwatchedVideos = listOf(
 val watchedVideos = listOf(
     Video(4, "Mouseless development", "Tom Jerry", "https://youtu.be/PsaFVLr8t4E")
 )
-//we've finished extracting our first component!
