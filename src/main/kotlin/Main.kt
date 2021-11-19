@@ -14,7 +14,7 @@ fun main() {
                 +"Videos to watch"
             }
             //we can now write a Kotlin for-loop to iterate over the collection of unwatched and watched videos.
-            for(video in unwatchedVideos) {
+            for (video in unwatchedVideos) {
                 p {
                     +"${video.speaker}: ${video.title}"
                 }
@@ -23,13 +23,19 @@ fun main() {
             h3 {
                 +"Videos watched"
             }
-            for(video in watchedVideos) {
+            for (video in watchedVideos) {
                 p {
                     +"${video.speaker}: ${video.title}"
                 }
             }
         }
-        div {
+//Let's use styledDiv to move the video player to the top right corner of the page.
+        styledDiv {
+            css {
+                position = Position.absolute
+                top = 10.px
+                right = 10.px
+            }
             h3 {
                 +"John Doe: Building and breaking things"
             }
