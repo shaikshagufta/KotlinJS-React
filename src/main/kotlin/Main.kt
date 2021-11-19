@@ -5,5 +5,9 @@ import kotlinx.serialization.Serializable
 import styled.*
 
 fun main() {
-    document.bgColor = "red"
+    render(document.getElementById("root")) {
+        h1{
+            +"Hello, React+Kotlin/JS from T4!"
+        }
+    }
 }

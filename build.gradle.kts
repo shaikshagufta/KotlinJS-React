@@ -40,8 +40,8 @@ dependencies {
     implementation(npm("react-share", "4.4.0"))
 
     //Coroutines & serialization (chapter 8)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2-native-mt")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
 }
 
 // Heroku Deployment (chapter 9)
