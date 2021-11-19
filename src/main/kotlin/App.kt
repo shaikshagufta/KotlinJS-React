@@ -10,7 +10,7 @@ import styled.css
 import styled.styledDiv
 
 // splitting our application into components
-
+// we could then use the videoList component by using the child function, again:
 val app = fc<Props> {
     // typesafe HTML goes here!
     h1 {
@@ -20,6 +20,7 @@ val app = fc<Props> {
         h3 {
             +"Videos to watch"
         }
+        child(videoList)
         //we can now write a Kotlin for-loop to iterate over the collection of unwatched and watched videos.
         for (video in unwatchedVideos) {
             p {
@@ -30,6 +31,7 @@ val app = fc<Props> {
         h3 {
             +"Videos watched"
         }
+        child(videoList)
         for (video in watchedVideos) {
             p {
                 +"${video.speaker}: ${video.title}"
@@ -52,3 +54,5 @@ val app = fc<Props> {
         }
     }
 }
+//problem: The app component has no control over the content that is shown by the videoList component.
+// It is hard-coded, so we see the same list twice.
