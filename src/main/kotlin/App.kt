@@ -9,9 +9,7 @@ import kotlinx.serialization.json.Json
 import styled.css
 import styled.styledDiv
 
-// splitting our application into components
-// we could then use the videoList component by using the child function, again:
-//We add currentVideo as state to our app component.
+
 val app = fc<Props> {
     var currentVideo: Video? by useState(null)
     // typesafe HTML goes here!
@@ -22,9 +20,7 @@ val app = fc<Props> {
         h3 {
             +"Videos to watch"
         }
-// let's make sure we instantiate the child components with proper attributes.
-        //pass the selectedVideo,
-        // and a handler for onSelectVideo for each of our two video lists
+
         child(videoList){
             attrs {
                 videos = unwatchedVideos
@@ -34,7 +30,6 @@ val app = fc<Props> {
                 }
             }
         }
-        //we can now write a Kotlin for-loop to iterate over the collection of unwatched and watched videos.
         for (video in unwatchedVideos) {
             p {
                 +"${video.speaker}: ${video.title}"
