@@ -4,17 +4,17 @@ import react.*
 import react.dom.*
 
 val videoList = fc<VideoListProps> { props ->
-    var selectedVideo: Video? by useState(null)
+
 
     for (video in props.videos) {
         p {
             key = video.id.toString()
             attrs {
                 onClickFunction = {
-                    selectedVideo = video
+                    props.onSelectVideo(video)
                 }
             }
-            if (video == selectedVideo) {
+            if (video == props.selectedVideo) {
                 +"▶ "
             }
             +"${video.speaker}: ${video.title}"
@@ -24,4 +24,12 @@ val videoList = fc<VideoListProps> { props ->
 
 external interface VideoListProps : Props {
     var videos: List<Video>
+    // to receive the selected video as a prop.
+    // We expand the VideoListProps interface to contain the selectedVideo
+    var selectedVideo: Video?
+    /*
+    We need to change the state of a parent component again as,
+    We can't assign a value to a prop
+    */
+    var onSelectVideo: (Video) -> Unit
 }

@@ -11,7 +11,9 @@ import styled.styledDiv
 
 // splitting our application into components
 // we could then use the videoList component by using the child function, again:
+//We add currentVideo as state to our app component.
 val app = fc<Props> {
+    var currentVideo: Video? by useState(null)
     // typesafe HTML goes here!
     h1 {
         +"KotlinConf Explorer"
@@ -21,9 +23,15 @@ val app = fc<Props> {
             +"Videos to watch"
         }
 // let's make sure we instantiate the child components with proper attributes.
+        //pass the selectedVideo,
+        // and a handler for onSelectVideo for each of our two video lists
         child(videoList){
             attrs {
                 videos = unwatchedVideos
+                selectedVideo = currentVideo
+                onSelectVideo = { video ->
+                    currentVideo = video
+                }
             }
         }
         //we can now write a Kotlin for-loop to iterate over the collection of unwatched and watched videos.
@@ -36,9 +44,15 @@ val app = fc<Props> {
         h3 {
             +"Videos watched"
         }
+        //pass the selectedVideo,
+        // and a handler for onSelectVideo for each of our two video lists
         child(videoList){
             attrs {
                 videos = unwatchedVideos
+                selectedVideo = currentVideo
+                onSelectVideo = { video ->
+                    currentVideo = video
+                }
             }
         }
         for (video in watchedVideos) {
