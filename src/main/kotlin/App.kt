@@ -56,19 +56,16 @@ val app = fc<Props> {
             }
         }
     }
-    styledDiv {
-        css {
-            position = Position.absolute
-            top = 10.px
-            right = 10.px
-        }
-        h3 {
-            +"John Doe: Building and breaking things"
-        }
-        img {
+    //let scope function-- we ensure that the videoPlayer component is only added when state.currentVideo is not null.
+    currentVideo?.let { curr ->
+        child(videoPlayer) {
             attrs {
-                src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+                video = curr
             }
         }
     }
 }
+/*
+clicking an entry in the list will bring up the video player,
+and populate it with the information from the clicked entry.
+*/
