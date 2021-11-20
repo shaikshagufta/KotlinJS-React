@@ -38,10 +38,9 @@ val videoPlayer = fc<VideoPlayerProps> { props ->
                 +"Mark as unwatched"
             }
         }
-        img {
-            attrs {
-                src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+        //to replace the gray placeholder rectangle in our videoPlayer component.
+            reactPlayer {
+                attrs.url = props.video.videoUrl
             }
-        }
     }
 }
