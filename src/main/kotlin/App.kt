@@ -29,16 +29,12 @@ val app = fc<Props> {
                 }
             }
         }
-        for (video in unwatchedVideos) {
-            p {
-                +"${video.speaker}: ${video.title}"
-            }
-        }
         h3 {
             +"Videos watched"
         }
-
-        child(videoList){
+        //pass the selectedVideo,
+        // and a handler for onSelectVideo for each of our two video lists
+        child(videoList) {
             attrs {
                 videos = unwatchedVideos
                 selectedVideo = currentVideo
@@ -47,25 +43,26 @@ val app = fc<Props> {
                 }
             }
         }
-        for (video in watchedVideos) {
-            p {
-                +"${video.speaker}: ${video.title}"
-            }
-        }
     }
-    styledDiv {
-        css {
-            position = Position.absolute
-            top = 10.px
-            right = 10.px
-        }
-        h3 {
-            +"John Doe: Building and breaking things"
-        }
-        img {
+    /*
+    Because our VideoPlayerProps interface specifies that
+    the videoPlayer component takes a non-null Video,
+    we need to make sure handle this in our app component accordingly.
+     */
+    currentVideo?.let { curr ->
+        child(videoPlayer) {
             attrs {
-                src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+                video = curr
             }
         }
     }
+    /*
+    By using the let scope function,
+    we ensure that the videoPlayer component is only added when 'state.currentVideo' is not null.
+     */
 }
+/*
+Output:
+clicking an entry in the list will bring up the video player,
+and populate it with the information from the clicked entry.
+*/
