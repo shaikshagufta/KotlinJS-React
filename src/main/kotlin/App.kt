@@ -63,10 +63,3 @@ val app = fc<Props> {
         }
     }
 }
-//problem: The app component has no control over the content that is shown by the videoList component.
-// It is hard-coded, so we see the same list twice.
-
-//Solution: So Instead, we need a mechanism to pass the list into the component.
-
-//We now have a reusable component that can render a list of videos.
-// The code for our app component got smaller, and we got rid of some duplication in our code.
