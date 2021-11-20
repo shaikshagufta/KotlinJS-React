@@ -53,7 +53,7 @@ val app = fc<Props> {
         }
         child(videoList) {
             attrs {
-                videos = unwatchedVideos
+                videos = watchedVideos
                 selectedVideo = currentVideo
                 onSelectVideo = { video ->
                     currentVideo = video

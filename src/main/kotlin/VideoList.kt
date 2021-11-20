@@ -3,6 +3,11 @@ import kotlinx.browser.window
 import react.*
 import react.dom.*
 
+external interface VideoListProps : Props {
+    var videos: List<Video>
+    var selectedVideo: Video?
+    var onSelectVideo: (Video) -> Unit
+}
 val videoList = fc<VideoListProps> { props ->
 
 
@@ -22,8 +27,3 @@ val videoList = fc<VideoListProps> { props ->
     }
 }
 
-external interface VideoListProps : Props {
-    var videos: List<Video>
-    var selectedVideo: Video?
-    var onSelectVideo: (Video) -> Unit
-}
