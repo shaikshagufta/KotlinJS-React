@@ -63,6 +63,8 @@ val app = fc<Props> {
 }
 /*
 Output:
-clicking an entry in the list will bring up the video player,
+1 clicking an entry in the list will bring up the video player,
 and populate it with the information from the clicked entry.
+2 Adding a button and wiring it,
+we use a basic Kotlin if expression to change the color of the button dynamically.
 */
