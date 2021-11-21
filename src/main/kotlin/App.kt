@@ -82,3 +82,7 @@ val app = fc<Props> {
         }
     }
 }
+/*
+Output:
+we've enriched our application with the new feature of social sharing!
+ */
