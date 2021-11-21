@@ -4,6 +4,8 @@ import kotlinx.css.*
 import kotlinx.serialization.Serializable
 import styled.*
 
+//1 to tell the serialization library about the Video class.
+@Serializable
 data class Video(
     val id: Int,
     val title: String,
