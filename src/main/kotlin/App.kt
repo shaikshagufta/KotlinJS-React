@@ -11,7 +11,7 @@ import styled.styledDiv
 
 suspend fun fetchVideo(id: Int): Video {
     val response = window
-        .fetch("https://my-json-server.typicode.com/kotlin-hands-on/kotlinconf-json/videos/$id")
+        .fetch("https://my-json-server.typicode.com/shaikshagufta/kotlin-MyJSON-Server/videos/$id")
         .await()
         .text()
         .await()
@@ -39,7 +39,7 @@ val app = fc<Props> {
         }
     }
     h1 {
-        +"KotlinConf Explorer"
+        +"BTS Speeches Watchlist"
     }
     div {
         h3 {
