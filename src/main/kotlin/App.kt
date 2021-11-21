@@ -8,15 +8,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import styled.css
 import styled.styledDiv
-/*
-IDEA:
- Let's add two more features:
-A video player that actually plays videos.
-Some social share buttons to help people share content they enjoy.
-Instead of building this functionality ourselves we use React's ecosystem,
-and import pre-made components for these use cases.
- */
-//1  replace the placeholder video player with an actual YouTube player
+
 val app = fc<Props> {
     var currentVideo: Video? by useState(null)
     var unwatchedVideos: List<Video> by useState(
@@ -82,7 +74,3 @@ val app = fc<Props> {
         }
     }
 }
-/*
-Output:
-we've enriched our application with the new feature of social sharing!
- */
