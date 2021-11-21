@@ -58,6 +58,13 @@ val videoPlayer = fc<VideoPlayerProps> { props ->
                     attrs.round = true
                 }
             }
+            whatsappShareButton {
+                attrs.url = props.video.videoUrl
+                whatsappIcon {
+                    attrs.size = 32
+                    attrs.round = true
+                }
+            }
         }
         //to replace the gray placeholder rectangle in our videoPlayer component.
             reactPlayer {

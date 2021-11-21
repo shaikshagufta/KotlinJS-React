@@ -26,6 +26,12 @@ external val telegramIcon: ComponentClass<IconProps>
 @JsName("TelegramShareButton")
 external val telegramShareButton: ComponentClass<ShareButtonProps>
 
+@JsName("WhatsappIcon")
+external val whatsappIcon: ComponentClass<IconProps>
+
+@JsName("WhatsappShareButton")
+external val whatsappShareButton: ComponentClass<ShareButtonProps>
+
 external interface ShareButtonProps : Props {
     var url: String
 }
